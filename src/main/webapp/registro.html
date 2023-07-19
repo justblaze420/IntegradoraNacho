@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Bienvenido</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='script.js'></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="img/cds.png" alt="Logo" width="40" height="30" class="d-inline-block align-text-top">
+            SRP UTEZ
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarNavAltMarkup" style="">
+          <div class="navbar-nav">
+            <a class="nav-link disabled" href="#">Inicio</a>
+            <a class="nav-link" aria-current="page" href="registro.jsp">Registro</a>
+            <a class="nav-link" href="vistaProductos.jsp">Asistencias</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+<script>
+   var fechaActual = new Date();
+    
+    // Obtener los componentes de la fecha
+    var dia = fechaActual.getDate();
+    var mes = fechaActual.getMonth() + 1;
+    var anio = fechaActual.getFullYear();
+    
+    // Formatear la fecha
+    var fechaFormateada = dia + '/' + mes + '/' + anio;
+    
+    // Insertar la fecha en el elemento HTML
+    document.getElementById('fecha').innerHTML = fechaFormateada;
+
+    function getParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+        var results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+    console.log(getParameter("nombre"));
+    var nombre = getParameter("nombre");
+
+    if (nombre != "") {
+        document.getElementById("mensaje").innerHTML = "Bienvenido/a " + nombre;
+    }
+</script>
+<style>
+.box {
+  position: relative;
+  background: #fff;
+  border-radius: 4px;
+  width: 600px;
+  text-align: center;
+  outline: dashed 1px black;
+  margin: 25px auto;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+
+
+    .col-lg-2, .col-md-3, .col-xs-6{
+    margin-top: 30px !important;
+}
+</style>
+<body>
+    <center>
+    <body style="background-color:black">
+      
+          <div class="col-lg-2 col-md-3 col-xs-6 ">
+              <div class="gradient"></div>
+              <img src="img/utez.png" alt="">
+              <div class="box">
+                <img src="img/fingerprint.png" alt="" height="75px" width="100px">
+                <h3 id="mensaje">Bienvenido(a) Ignacio</h3>
+                  <h4>UTEZ</h4>
+                  <h4 id="fecha"></h4>
+
+                  <h5>Bienvenido a sistema de asistencia</h5>
+              </div>
+          </div>
+      
+      
+      </body>
+    </center>
+</body>
+</html></html>
